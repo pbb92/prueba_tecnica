@@ -23,6 +23,10 @@ def main():
     trabajador_1 = Trabajador("Pepe", 30)
     trabajador_1.presentation()
 
+    my_var_list = ["Andrea", "42", "Ventas", "Manager"]
+    trabajador_2 = Trabajador(*my_var_list)
+    trabajador_2.presentation()
+
 
 if __name__ == "__main__":
     main()
