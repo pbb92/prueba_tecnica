@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import airflow
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
-
+from timediff import TimeDiff
 
 default_args = {
     'owner': 'airflow',
@@ -44,3 +44,9 @@ for x in range(n):
 for task_odd in task_n[0::2]:
     for task_even in task_n[1::2]:
         task_odd >> task_even
+
+time_diff = TimeDiff(
+    task_id='timediff',
+    diff_date=datetime(2020, 10, 11),
+    dag=test
+)
