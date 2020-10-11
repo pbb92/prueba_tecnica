@@ -18,7 +18,9 @@ def main():
     persona_1 = Persona(nombre, 20)
     persona_1.presentation()
 
-    trabajador_1 = Trabajador("Pepe", 30, "Data", "Analyst")
+    # Si ahora no pasamos los valores departamento y puesto, por defector
+    # usara "Data" y "Analyst respectivamente"
+    trabajador_1 = Trabajador("Pepe", 30)
     trabajador_1.presentation()
 
 
