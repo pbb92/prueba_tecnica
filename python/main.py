@@ -27,6 +27,15 @@ def main():
     trabajador_2 = Trabajador(*my_var_list)
     trabajador_2.presentation()
 
+    my_var_dict = {
+        "nombre": "Andrea",
+        "edad": 42,
+        "departamento": "Ventas",
+        "puesto": "Manager"
+    }
+    trabajador_3 = Trabajador(**my_var_dict)
+    trabajador_3.presentation()
+
 
 if __name__ == "__main__":
     main()
