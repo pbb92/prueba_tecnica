@@ -50,3 +50,14 @@ time_diff = TimeDiff(
     diff_date=datetime(2020, 10, 11),
     dag=test
 )
+
+'''
+¿Que es un Hook? ¿En que se diferencia de una conexion?
+Un hook es una interfaz que se utiliza para comunicarse con recursos
+externos como pueden ser bases de datos. En vez de crear una conexion se
+utiliza un hook, de esta forma no se almacenan las credenciales en el DAG.
+El hook se encargara de obtener la información necesaria para la
+autenticacion de la conexion.
+La conexion es simplemente un sistema externo al DAG en el que se almacenan
+estos datos necesarios para la autenticación.
+'''
