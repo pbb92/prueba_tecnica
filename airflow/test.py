@@ -2,6 +2,8 @@ from datetime import datetime, timedelta
 
 import airflow
 from airflow import DAG
+from airflow.operators.dummy_operator import DummyOperator
+
 
 
 default_args = {
@@ -17,3 +19,16 @@ test = DAG(
     default_args=default_args,
     schedule_interval='0 3 * * *',
 )
+
+
+t1 = DummyOperator(
+    task_id='start',
+    dag=test
+)
+
+t2 = DummyOperator(
+    task_id='end',
+    dag=test
+)
+
+t1 >> t2
