@@ -5,7 +5,6 @@ from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 
 
-
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
@@ -32,3 +31,16 @@ t2 = DummyOperator(
 )
 
 t1 >> t2
+
+n = 5
+task_n = []
+for x in range(n):
+    t = DummyOperator(
+        task_id="task_{}".format(x+1),
+        dag=test
+    )
+    task_n.append(t)
+
+for task_odd in task_n[0::2]:
+    for task_even in task_n[1::2]:
+        task_odd >> task_even
